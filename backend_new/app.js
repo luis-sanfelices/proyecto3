@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('./routes/index');
 const mongoose = require('mongoose');
+const routes = require('./routes/index');
+
 const app = express();
 
 require('dotenv').config();
@@ -13,10 +14,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 routes(app);
 
-var server = app.listen(3000, () => {
-    console.log('app running on port', server.address().port);
-});
+module.exports = app;
+
