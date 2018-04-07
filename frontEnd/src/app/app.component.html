@@ -5,14 +5,14 @@
       <div *ngIf="loading">
         <span class="username text">loading...</span>
       </div>
-      <div *ngIf="!loading && !!user">
+     <!-- <div *ngIf="!loading && !!user">
         <a [routerLink]="['/page']">{{user.username}}</a>
         <a (click)="logout()">logout</a>
       </div>
       <div *ngIf="!loading && anon">
         <a [routerLink]="['/login']">login</a>
         <a [routerLink]="['/signup']">signup</a>
-      </div>
+      </div>-->
       <router-outlet></router-outlet>
     </div>
 

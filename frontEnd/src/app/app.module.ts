@@ -29,19 +29,19 @@ const routes: Routes = [
   {
     path: "",
     component: HomePageComponent,
-    canActivate: [InitAuthGuardService]
+    //canActivate: [InitAuthGuardService]
   },
   {
     path: "login",
     component: AuthLoginPageComponent,
-    canActivate: [RequireAnonGuardService]
+    //canActivate: [RequireAnonGuardService]
   },
   {
     path: "signup",
     component: AuthLoginPageComponent,
-    canActivate: [RequireAnonGuardService]
+    //canActivate: [RequireAnonGuardService]
   },
-  { path: 'page',  component: PrivateComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'page',  component: PrivateComponent , /*canActivate: [ RequireUserGuardService ] */},
   { path: "**", redirectTo: "" }
 ];
 

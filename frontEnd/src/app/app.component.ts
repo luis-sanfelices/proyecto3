@@ -20,11 +20,11 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
-    this.authService.userChange$.subscribe((user) => {
-      this.loading = false;
+    this.loading = false;
+    /*this.authService.userChange$.subscribe((user) => {
       this.user = user;
       this.anon = !user;
-    });
+    });*/
   }
 
   logout() {
