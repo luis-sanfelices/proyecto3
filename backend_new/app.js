@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/index');
 const authRoutes = require('./routes/auth');
+const quizRoutes = require('./routes/quiz');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 routes(app);
 authRoutes(app);
+quizRoutes(app);
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');
