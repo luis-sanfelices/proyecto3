@@ -9,27 +9,27 @@ const quizController = {
       user: req.decoded.id,
     })
       .then((quiz) => {
-        res.status(200).send(quiz);
+        res.status(200).json(quiz);
       })
       .catch((err) => {
         next(err);
       });
   },
-  //createQuestion
+  // createQuestion
   createQuestion(req, res, next) {
-    newQuestion = {
+    const newQuestion = {
       question: req.body.question,
       correct_answer: req.body.correct_answer,
       incorrect_answers: req.body.incorrect_answers,
-    }
-    Quiz.findOneAndUpdate({ _id: req.params.quizId }, { $push: { questions: newQuestion } } )
-      .then((quiz)=>{
-        res.status(200).send(quiz);
+    };
+    Quiz.findOneAndUpdate({ _id: req.params.quizId }, { $push: { questions: newQuestion } })
+      .then((quiz) => {
+        res.status(200).json(quiz);
       })
-      .catch((err)=>{
+      .catch((err) => {
         next(err);
-      })
-  }
+      });
+  },
 };
 
 module.exports = quizController;

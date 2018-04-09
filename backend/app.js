@@ -15,10 +15,10 @@ if (process.env.NODE_ENV === 'development') {
   mongoose.connect(process.env.DATABASE);
 }
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', process.env.ALLOW_ORIGIN);
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  // res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 
@@ -29,11 +29,11 @@ routes(app);
 authRoutes(app);
 quizRoutes(app);
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
-});
+});*/
 
 // error handler
 app.use((error, req, res) => {
