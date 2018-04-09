@@ -1,1 +1,2 @@
-﻿export * from './auth.guard';
+﻿export * from './require-user-guard';
+export * from './require-anon-guard';
