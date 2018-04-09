@@ -13,6 +13,7 @@ export class AuthenticationService {
     signup(newUser: User) {
         return this.http.post<any>(`${this.BASE_URL}/signup`, newUser)
             .map(user => {
+                console.log(user);
                 if (user && user.token) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
