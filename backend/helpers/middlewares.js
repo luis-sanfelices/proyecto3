@@ -12,6 +12,19 @@ const middlewares = {
       });
     };
   },
+  CORS() {
+    return (req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+      res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      res.setHeader('Access-Control-Allow-Credentials', true);
+      if (req.method === 'OPTIONS') {
+        res.sendStatus(200);
+      } else {
+        next();
+      }
+    };
+  },
 };
 
 module.exports = middlewares;
