@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   mongoose.connect(process.env.DATABASE);
 }
-app.use(middlewares.CORS());
+app.use(middlewares.CORS(process.env.ALLOW_ORIGIN));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
