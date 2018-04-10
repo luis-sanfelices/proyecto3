@@ -5,9 +5,6 @@ const User = require('../models/user');
 require('dotenv').config();
 
 const authController = {
-  hello(req, res) {
-    res.send('hello world auth');
-  },
   signup(req, res, next) {
     const { username, password } = req.body;
 
