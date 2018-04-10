@@ -7,12 +7,13 @@ export class RequireAnonGuard implements CanActivate {
     constructor(private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (!localStorage.getItem('currentUser')) {
-            // logged in so return true
+        const user = localStorage.getItem('currentUser')
+        if (!user) {
+            // not logged in so return true
             return true;
         } else {
-            // not logged in so redirect to login page with the return url
-            this.router.navigate(['login'], { queryParams: { returnUrl: state.url }});
+            // logged in so redirect to profile page
+            this.router.navigate(['/']);
             return false;
         }
     }
